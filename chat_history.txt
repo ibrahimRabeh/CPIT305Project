@@ -1,0 +1,17 @@
+[Wed Apr 16 14:58:43 AST 2025] Server: admin has joined the chat.
+[Wed Apr 16 14:58:51 AST 2025] admin: hello
+[Wed Apr 16 14:59:40 AST 2025] Server: user1 has joined the chat.
+[Wed Apr 16 14:59:43 AST 2025] user1: hello
+[Wed Apr 16 15:01:14 AST 2025] Server: user1 has joined the chat.
+[Wed Apr 16 15:01:40 AST 2025] user1: /file quiz2_2135956.rar
+[Wed Apr 16 15:02:00 AST 2025] user1: sent file: quiz2_2135956.rar
+[Wed Apr 16 15:03:17 AST 2025] Server: admin has joined the chat.
+[Wed Apr 16 15:03:30 AST 2025] Server: user1 has joined the chat.
+[Wed Apr 16 15:21:30 AST 2025] Server: admin has joined the chat.
+[Wed Apr 16 15:22:06 AST 2025] Server: user1 has joined the chat.
+[Wed Apr 16 15:22:14 AST 2025] user1: hello
+[Wed Apr 16 15:22:20 AST 2025] admin: I'm admin
+[Wed Apr 16 15:22:26 AST 2025] user1: sent file: Document.docx
+[Wed Apr 16 15:22:52 AST 2025] user1: hello
+[Wed Apr 16 15:23:02 AST 2025] admin: I'm an admin
+[Wed Apr 16 15:23:44 AST 2025] user1: sent file: Chapter12 Part 1 (1).pptx
