@@ -28,7 +28,7 @@ public class ChatGUI {
     private void loadFilteredChatHistory() {
         try {
             // Check if chat_history.txt exists in the current directory
-            File historyFile = new File("./CPIT305Project/chat_history.txt");
+            File historyFile = new File("chat_history.txt");
             
             // Print working directory for debugging
             
@@ -70,16 +70,14 @@ public class ChatGUI {
                 
                 // Show only the last 20 important messages
                 int startIndex = Math.max(0, importantMessages.size() - 20);
-                appendMessage("--- Chat History ---");
                 for (int i = startIndex; i < importantMessages.size(); i++) {
                     appendMessage(importantMessages.get(i));
                 }
-                appendMessage("--- End of History ---");
             } else {
                 appendMessage("[System]: Chat history file not found in current directory.");
                 
                 // Try to look for the file in the parent directory
-                File parentDirHistoryFile = new File("../CPIT305Project/chat_history.txt");
+                File parentDirHistoryFile = new File("../chat_history.txt");
                 if (parentDirHistoryFile.exists()) {
                     appendMessage("[System]: Found chat history in parent directory: " + parentDirHistoryFile.getAbsolutePath());
                 } else {

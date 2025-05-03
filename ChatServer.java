@@ -19,7 +19,7 @@ public class ChatServer {
         try {
             serverSocket = new ServerSocket(port);
             // Open or create the log file (chat_history.txt) in append mode.
-            logWriter = new PrintWriter(new FileWriter("./CPIT305Project/chat_history.txt", true), true);
+            logWriter = new PrintWriter(new FileWriter("./chat_history.txt", true), true);
             System.out.println("Server started on port " + port);
             
             // Load chat history from file
@@ -32,7 +32,7 @@ public class ChatServer {
     
     // Load chat history from file
     private void loadChatHistory() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("./CPIT305Project/chat_history.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./chat_history.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Parse basic history format and create message objects

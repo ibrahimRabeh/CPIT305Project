@@ -29,15 +29,12 @@ public class ChatClient {
             socket = new Socket(hostname, port);
             System.out.println("Connected to the chat server.");
 
-            // Important: Create output stream first to prevent deadlock
             out = new ObjectOutputStream(socket.getOutputStream());
-            out.flush(); // This flush is critical
+            out.flush(); 
             in = new ObjectInputStream(socket.getInputStream());
             
-            // Send a login message.
             sendMessage(new Message(Message.MessageType.LOGIN, userName, userName + " logged in."));
             
-            // Start a new thread to read messages from the server.
             new Thread(new ReadThread()).start();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -65,7 +62,6 @@ public class ChatClient {
             out.writeObject(message);
             out.flush();
             
-            // Note: The GUI will now echo our own messages, so removed duplicated logic here
         } catch (IOException ex) {
             ex.printStackTrace();
             if (gui != null) {
@@ -103,7 +99,6 @@ public class ChatClient {
         this.userName = userName;
     }
     
-    // Thread to continuously read messages from the server.
     private class ReadThread implements Runnable {
         public void run() {
             try {
@@ -112,7 +107,6 @@ public class ChatClient {
                     if (message != null) {
                         String displayMessage;
                         
-                        // Skip messages from myself since we echo locally in the GUI
                         if (message.getType() == Message.MessageType.CHAT && 
                             message.getSender().equals(userName)) {
                             continue;
@@ -157,7 +151,6 @@ public class ChatClient {
         System.out.println("Enter your password:");
         String password = scanner.nextLine();
         
-        // Authenticate the user via InMemoryDB
         if (!InMemoryDB.authenticate(userName, password)) {
             System.out.println("Authentication failed. Exiting.");
             System.exit(0);
