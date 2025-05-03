@@ -29,7 +29,9 @@ public class ChatClient {
             socket = new Socket(hostname, port);
             System.out.println("Connected to the chat server.");
 
+            // Important: Create output stream first to prevent deadlock
             out = new ObjectOutputStream(socket.getOutputStream());
+            out.flush(); // This flush is critical
             in = new ObjectInputStream(socket.getInputStream());
             
             // Send a login message.
@@ -39,6 +41,9 @@ public class ChatClient {
             new Thread(new ReadThread()).start();
         } catch (IOException ex) {
             ex.printStackTrace();
+            if (gui != null) {
+                gui.appendMessage("[System]: Failed to connect to the server. Please check if the server is running.");
+            }
         }
     }
     
@@ -59,14 +64,22 @@ public class ChatClient {
         try {
             out.writeObject(message);
             out.flush();
+            
+            // Note: The GUI will now echo our own messages, so removed duplicated logic here
         } catch (IOException ex) {
             ex.printStackTrace();
+            if (gui != null) {
+                gui.appendMessage("[System]: Failed to send message. Server may be down.");
+            }
         }
     }
     
     public void sendFile(File file) {
         if (!file.exists()) {
             System.out.println("File not found.");
+            if (gui != null) {
+                gui.appendMessage("[System]: File not found: " + file.getName());
+            }
             return;
         }
         byte[] fileData = readFile(file);
@@ -98,6 +111,13 @@ public class ChatClient {
                     Message message = (Message) in.readObject();
                     if (message != null) {
                         String displayMessage;
+                        
+                        // Skip messages from myself since we echo locally in the GUI
+                        if (message.getType() == Message.MessageType.CHAT && 
+                            message.getSender().equals(userName)) {
+                            continue;
+                        }
+                        
                         switch(message.getType()) {
                             case CHAT:
                                 displayMessage = "[" + message.getSender() + "]: " + message.getContent();
@@ -120,6 +140,9 @@ public class ChatClient {
                 }
             } catch (IOException | ClassNotFoundException ex) {
                 System.out.println("Server connection closed.");
+                if (gui != null) {
+                    gui.appendMessage("[System]: Connection to server lost. Please restart the application.");
+                }
             }
         }
     }
