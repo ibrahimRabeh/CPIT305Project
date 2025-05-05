@@ -1,3 +1,24 @@
 [Sat May 03 16:28:47 AST 2025] Server: admin has joined the chat.
-[Sat May 03 16:28:51 AST 2025] admin: hello
 
+[Sat May 03 17:27:45 AST 2025] Server: user1 has joined the chat.
+[Sat May 03 17:27:58 AST 2025] user1: hello I'm user1
+[Sat May 03 17:28:21 AST 2025] Server: user2 has joined the chat.
+[Sat May 03 17:28:32 AST 2025] user2: hello am user2
+[Sat May 03 17:28:59 AST 2025] Server: admin has joined the chat.
+[Sat May 03 17:29:07 AST 2025] admin: hello am admin
+[Sat May 03 17:30:31 AST 2025] user1: sent file: cpit280-2.pdf
+[Sat May 03 17:31:48 AST 2025] Server: admin has left the chat.
+[Mon May 05 12:36:47 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 12:40:31 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 12:44:00 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 12:47:36 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 12:48:44 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 13:10:04 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 13:11:32 AST 2025] Server: admin has joined the chat.
+[Mon May 05 13:11:42 AST 2025] admin: hello
+[Mon May 05 13:11:49 AST 2025] user1: hello there admin
+[Mon May 05 13:11:54 AST 2025] user1: AAAAAAAAAAAAAAAAAAAAAAAAA
+[Mon May 05 13:13:29 AST 2025] Server: user1 has joined the chat.
+[Mon May 05 13:13:43 AST 2025] Server: admin has joined the chat.
+[Mon May 05 13:13:58 AST 2025] Server: user2 has joined the chat.
+[Mon May 05 13:14:22 AST 2025] user2: sent file: f.txt
